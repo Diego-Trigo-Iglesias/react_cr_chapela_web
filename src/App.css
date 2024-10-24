@@ -1,38 +1,47 @@
-.App {
-  text-align: center;
+/* App.css Estilo general de la aplicación */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif; /* Cambia la fuente si lo deseas */
+  background-color: #f0f0f0; /* Color de fondo de la página */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Navbar y Menú */
+.navbar {
+  color: white; /* Color del texto en el navbar */
+  padding: 10px 20px; /* Espaciado alrededor del contenido */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.navbar a {
+  color: white; /* Color de los enlaces */
+  text-decoration: none; /* Sin subrayado */
+  margin: 0 15px; /* Espaciado entre enlaces */
+}
+
+.navbar a:hover {
+  text-decoration: underline; /* Subrayado al pasar el mouse */
+}
+
+/* Contenido principal */
+main {
+  padding: 20px; /* Espaciado para el contenido principal */
+}
+
+/* Estilos de la sección del footer (opcional) */
+footer {
+  color: white; /* Color del texto del footer */
+  text-align: center; /* Centrar texto */
+  padding: 10px 0; /* Espaciado arriba y abajo */
+  position: relative; /* Para que no se superponga con otros elementos */
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .navbar a {
+    display: block; /* Cambia a bloque para pantalla pequeña */
+    margin: 5px 0; /* Espaciado vertical */
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+  
+  .logo {
+    height: 40px; /* Ajusta el tamaño del logo en pantallas pequeñas */
   }
 }
