@@ -1,46 +1,22 @@
-// pages/Home.js
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
+import competitions from "../Data/Competitions";
+import { aboutText, aboutSummary, newsInformation, sponsors } from "../Data/AboutText";
 import "./Home.css";
-import competitions from "../Events/Competitions";
 
 const Home = () => {
-  const [isAboutExpanded, setIsAboutExpanded] = useState(false); // Estado para manejar la expansión del texto "Sobre Nosotros"
-
-  const aboutRef = useRef(null); // Referencia para la sección "Sobre Nosotros"
-  const menuRef = useRef(null); // Referencia para el menú desplegable
+  const [isAboutExpanded, setIsAboutExpanded] = useState(false);
+  const aboutRef = useRef(null);
+  const menuRef = useRef(null);
 
   const toggleAboutExpansion = () => {
-    setIsAboutExpanded(!isAboutExpanded); // Alternar la expansión del texto sobre nosotros
+    setIsAboutExpanded(!isAboutExpanded);
   };
-
-  const aboutText = "El Club de Remo Chapela es un club deportivo dedicado al remo, promoviendo valores de trabajo en equipo y excelencia deportiva. Ofrecemos formación para todas las edades y niveles, organizamos competiciones locales e internacionales, y trabajamos por la integración y el fomento del deporte en nuestra comunidad.";
-  const aboutSummary = "El Club de Remo Chapela es un club deportivo dedicado al remo...";
-  const newsText = "Nuestro equipo juvenil ha ganado el Campeonato Provincial 2024.";
-  const sponsors = [
-    { src: "wofcoSponsor.jpg", alt: "Wofco" },
-    { src: "nonXunta.jpg", alt: "Non Xunta" },
-    { src: "depPontevedra.png", alt: "Dep Pontevedra" },
-    { src: "concelloRedondela.png", alt: "Concello Redondela" },
-    { src: "xunta.png", alt: "Xunta de Galicia" },
-    { src: "niso.jpg", alt: "Grupo NISO" },
-    { src: "fonseca.jpeg", alt: "Talleres Fonseca" },
-    { src: "torresCarrera.jpg", alt: "Torres Carrera" },
-    { src: "repainox.jpg", alt: "Repainox" },
-    { src: "puertoVigo.jpg", alt: "Puerto de Vigo" },
-    { src: "dXura.jpg", alt: "D'Xura" },
-    { src: "gasAmigo.jpg", alt: "Gasoleos Amigo" },
-    { src: "aguaSana.jpg", alt: "Agua Sana" }
-  ];
-
 
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (aboutRef.current && !aboutRef.current.contains(event.target)) {
-        setIsAboutExpanded(false); // Cerrar si se hace clic fuera
-      }
-      if (menuRef.current && !menuRef.current.contains(event.target)) {
-        // Aquí puedes cerrar el menú desplegable, si es que tienes la lógica para eso
+        setIsAboutExpanded(false);
       }
     };
 
@@ -50,8 +26,11 @@ const Home = () => {
     };
   }, [aboutRef, menuRef]);
 
-  const nextCompetitions = competitions.slice(0, 2); // Las 4 primeras competiciones
-  const remainingCompetitions = competitions.slice(4); // El resto
+  // Filtrar y ordenar competiciones futuras
+  const currentDate = new Date(); // Obtener la fecha actual
+  const futureCompetitions = competitions.filter((competition) => new Date(competition.date) > currentDate);
+  const sortedCompetitions = futureCompetitions.sort((a, b) => new Date(a.date) - new Date(b.date));
+  const nextCompetitions = sortedCompetitions.slice(0, 2); // Tomar las 2 competiciones más próximas
 
   return (
     <div className="home-container">
@@ -63,9 +42,22 @@ const Home = () => {
 
       <section className="home-about" ref={aboutRef}>
         <h2>Sobre Nosotros</h2>
-        <p>
-          {isAboutExpanded ? aboutText : aboutSummary}
-        </p>
+        <div>
+          {(isAboutExpanded ? aboutText : [aboutSummary]).map((section, index) => {
+            if (typeof section === "string") {
+              return <p key={index}>{section}</p>;
+            }
+            switch (section.type) {
+              case "title":
+                return <h3 key={index}>{section.content}</h3>;
+              case "subtitle":
+                return <h4 key={index}>{section.content}</h4>;
+              case "paragraph":
+              default:
+                return <p key={index}>{section.content}</p>;
+            }
+          })}
+        </div>
         <button className="toggle-button" onClick={toggleAboutExpansion}>
           {isAboutExpanded ? "Mostrar menos" : "Leer más"}
         </button>
@@ -81,11 +73,19 @@ const Home = () => {
       </section>
 
       <section className="home-events">
-        <h2>Próximas Competiciones</h2>
+        <div className="header-container">
+          <h2>Próximas Competiciones</h2>
+          {nextCompetitions.length > 0 && (
+            <Link to="/calendar" className="view-calendar">
+              <span className="view-calendar-icon">📅</span>
+              Ver más competiciones en el calendario
+            </Link>
+          )}
+        </div>
         <div className="event-cards">
           {nextCompetitions.length > 0 ? (
             nextCompetitions.map((competition) => (
-              <Link to={`/event/${competition.id}`} className="event-card" key={competition.id}>
+              <Link to={`/calendar/${competition.id}`} className="event-card" key={competition.id}>
                 <h3>{competition.name}</h3>
                 <p>Fecha: {competition.date}</p>
                 <p>Lugar: {competition.location}</p>
@@ -96,21 +96,31 @@ const Home = () => {
             <p>No hay competiciones próximas.</p>
           )}
         </div>
-        {remainingCompetitions.length > 0 && (
-          <Link to="/calendar" className="view-calendar">
-            Ver más competiciones en el calendario
-          </Link>
-        )}
       </section>
+
+
 
       <section className="home-news">
         <h2>Noticias Destacadas</h2>
-        <p>{newsText}</p>
+        <div className="news-cards">
+          {newsInformation.map((newsItem, index) => (
+            <div key={index} className="news-card">
+              <div className="news-card-content">
+                <h3>{newsItem.title}</h3>
+                <p>{newsItem.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </section>
 
       <section className="home-cta">
-        <h2>¡Únete a Nosotros!</h2>
-        <button className="cta-button">Inscribirse</button>
+        <h2>¡No dudes en contactarnos!</h2>
+        <Link to="/contact">
+          <button className="cta-button">
+            <img src="/contact.png" alt="Contact Us" className="cta-image" />
+          </button>
+        </Link>
       </section>
     </div>
   );

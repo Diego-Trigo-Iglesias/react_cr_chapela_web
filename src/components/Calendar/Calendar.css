@@ -5,7 +5,8 @@
 }
 
 h1 {
-    margin-left: 10px;
+    text-align: center; 
+    color: #333;
 }
 
 .filters {
@@ -21,17 +22,38 @@ h1 {
 }
 
 .filters select {
-    padding: 8px;
+    padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
     font-size: 16px;
     background-color: #f9f9f9;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: border-color 0.3s ease;
 }
 
 .filters select:hover {
     border-color: #777;
+}
+
+.reset-filters-button {
+    background-color: #ff6600;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.reset-filters-button img {
+    width: 24px;
+    height: auto;
+}
+
+.reset-filters-button:hover {
+    transform: scale(1.05);
 }
 
 .competition-list {
@@ -53,13 +75,14 @@ h1 {
 }
 
 .competition-card:hover {
-    transform: translateY(-5px);
+    cursor: pointer;
+    transform: translateY(-10px);
 }
 
 .competition-card h3 {
     font-size: 22px;
-    color: #ff6600;
-    margin-bottom: 10px;
+    color: #ff6600; 
+    margin-bottom: 20px;
 }
 
 .competition-card p {

@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #333;
+  }
+  
+  .filters {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .filters select {
+    margin: 0 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s;
+  }
+  
+  .filters select:focus {
+    outline: none;
+  }
+  
+  .reset-filters-button {
+    background-color: #ff6600;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-left: 10px; /* Espacio entre los filtros y el botón */
+}
+
+.reset-filters-button img {
+    width: 24px;
+    height: auto;
+}
+
+.reset-filters-button:hover {
+    background-color: #e05a00;
+    transform: scale(1.05);
+}
+
+  .results-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+    gap: 20px; 
+  }
+  
+  .result-card {
+    background-color: white; 
+    border-radius: 10px; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+    padding: 30px;
+    width: 250px;
+    transition: transform 0.2s; 
+  }
+  
+  
+  .result-card h3 {
+    margin: 0;
+    color:#ff6600; 
+  }
+  
+  .result-card p {
+    margin: 1px 0;
+    color: #555;
+  }
+  

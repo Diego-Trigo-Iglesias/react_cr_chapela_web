@@ -64,8 +64,8 @@
   .dropdown {
     display: flex;
     flex-direction: column;
-    background-color: #3a3a3a; 
-    padding: 10px;
+    background-color:#2b2b2b; 
+    padding: 30px;
   }
   
   .dropdown a {
