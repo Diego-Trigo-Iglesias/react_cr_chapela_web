@@ -3,11 +3,11 @@ export const aboutText = [
     { type: "title", content: "Temporada Sobresaliente" },
     { type: "paragraph", content: "El Club ha cerrado una temporada sobresaliente en las tres categorías en las que compite: Liga Femenina, Liga B, y Liga A, con resultados destacados y logros significativos en cada una." },
     { type: "subtitle", content: "Liga Femenina" },
-    { type: "paragraph", content: "El equipo se consagró como ganador de la liga, logrando una temporada casi perfecta. Además, las remeras de Chapela se alzaron con el prestigioso trofeo Teresa Herrera y aseguraron plazas en el play-off de la Liga EuskoTren y en la codiciada bandera de La Concha, clasificándose para a final logrando un muy meritorio 6 puesto." },
+    { type: "paragraph", content: "El equipo se consagró como ganador de la liga, logrando una temporada casi perfecta. Además, las remeras de Chapela se alzaron con el prestigioso trofeo Teresa Herrera y aseguraron plazas en el play-off de la Liga EuskoTren y en la codiciada bandera de La Konxta, clasificándose para a final logrando un muy meritorio 6 puesto." },
     { type: "subtitle", content: "Liga B" },
     { type: "paragraph", content: "El equipo de Liga B, formado en gran parte por la cantera del club, logró un meritorio tercer puesto en la liga. Este resultado les ha otorgado la oportunidad de disputar el play-off de ascenso, subrayando el potencial de la cantera." },
     { type: "subtitle", content: "Liga A" },
-    { type: "paragraph", content: "El equipo finalizó en la segunda posición en liga, llevándose una bandera y logrando el segundo lugar en el prestigioso Teresa Herrera. También obtuvieron plazas para la regata de La Concha y el play-off de ascenso a la Liga Eusko Label." },
+    { type: "paragraph", content: "El equipo finalizó en la segunda posición en liga, llevándose una bandera y logrando el segundo lugar en el prestigioso Teresa Herrera. También obtuvieron plazas para la regata de La Konxta y el play-off de ascenso a la Liga Eusko Label." },
     { type: "paragraph", content: "El Club de Remo Chapela ha demostrado su compromiso con el deporte y su capacidad para competir al más alto nivel, llevando el nombre del club y el espíritu deportivo a lo más alto." }
 ];
 
@@ -19,8 +19,8 @@ export const newsInformation = [
         description: "Nuestro equipo juvenil ha ganado el Campeonato Nacional  2024."
     },
     {
-        title: "Inicio de temporada categrías juvenil y absoluto femenino",
-        description: "Reunión de inicio de temporada este Mieroles 23 a las 20:00h en el club."
+        title: "Inicio de temporada categorías juvenil y absoluto femenino",
+        description: "Reunión de inicio de temporada este Miércoles 23 a las 20:00h en el club."
     },
     {
         title: "Lotería de navidad",
