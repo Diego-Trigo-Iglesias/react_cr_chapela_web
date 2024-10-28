@@ -11,28 +11,19 @@ h1 {
 
 .filters {
     display: flex;
+    flex-wrap: wrap; /* Permite que los filtros se apilen en pantallas pequeñas */
     justify-content: center;
-    gap: 20px;
+    gap: 10px; /* Reduce el espacio entre filtros */
     margin-bottom: 30px;
 }
 
-.filters label {
-    font-weight: bold;
-    color: #333;
-}
-
 .filters select {
-    padding: 10px;
+    padding: 8px; /* Reducir padding en filtros */
     border-radius: 5px;
     border: 1px solid #ccc;
-    font-size: 16px;
+    font-size: 14px; /* Reducir tamaño de fuente */
     background-color: #f9f9f9;
     cursor: pointer;
-    transition: border-color 0.3s ease;
-}
-
-.filters select:hover {
-    border-color: #777;
 }
 
 .reset-filters-button {
@@ -41,61 +32,57 @@ h1 {
     border-radius: 5px;
     cursor: pointer;
     padding: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.reset-filters-button img {
-    width: 24px;
-    height: auto;
-}
-
-.reset-filters-button:hover {
-    transform: scale(1.05);
 }
 
 .competition-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Hacer las cards más pequeñas */
+    gap: 10px; /* Reducir el espacio entre cards */
     max-width: 90%;
     margin: 0 auto;
-    padding: 0 20px;
 }
 
 .competition-card {
     background-color: #fff;
     border-radius: 10px;
-    padding: 20px;
+    padding: 10px; /* Reducir padding en cards */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease;
-    min-height: 350px;
-}
-
-.competition-card:hover {
-    cursor: pointer;
-    transform: translateY(-10px);
+    min-height: 150px; /* Reducir altura mínima */
+    text-align: center; /* Centrar texto */
 }
 
 .competition-card h3 {
-    font-size: 22px;
+    font-size: 18px; /* Reducir tamaño de fuente para títulos */
     color: #ff6600; 
-    margin-bottom: 20px;
+    margin-bottom: 10px; /* Reducir margen */
 }
 
 .competition-card p {
-    font-size: 16px;
+    font-size: 12px; /* Reducir tamaño de fuente para párrafos */
     color: #555;
-}
-
-.competition-list:only-child {
-    justify-content: center;
 }
 
 .no-competitions {
     text-align: center;
-    font-size: 18px;
+    font-size: 14px; /* Ajustar tamaño de fuente */
     color: #777;
+}
+
+/* Estilos para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .filters {
+        flex-direction: column; /* Apilar filtros verticalmente */
+        align-items: center;
+    }
+
+    .filters select {
+        width: 100%; /* Filtros ocupan el 100% del ancho */
+        max-width: 300px; /* Limitar el ancho máximo */
+    }
+
+    .competition-card {
+        padding: 10px; /* Mantener el padding reducido en tarjetas */
+        min-height: 120px; /* Ajustar altura mínima */
+    }
 }

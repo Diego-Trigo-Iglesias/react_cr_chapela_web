@@ -19,7 +19,7 @@ const Header = () => {
   };
 
   return (
-    <header className="header">
+    <header className={`header ${isOpen ? 'is-open' : ''}`}>
       <div className="navbar">
         <div className="logo-container">
           <a href="/" {...linkProps}>
@@ -42,16 +42,14 @@ const Header = () => {
         </button>
       </div>
 
-      {isOpen && (
-        <nav className="dropdown">
-          <Link to="/" onClick={toggleMenu}>Home</Link>
-          <Link to="/calendar" onClick={toggleMenu}>Calendario</Link>
-          <Link to="/history" onClick={toggleMenu}>Historia</Link>
-          <Link to="/results" onClick={toggleMenu}>Resultados</Link>
-          <Link to="/team" onClick={toggleMenu}>Integrantes</Link>
-          <Link to="/contact" onClick={toggleMenu}>Contacto</Link>
-        </nav>
-      )}
+      <nav className="dropdown">
+        <Link to="/" onClick={toggleMenu}>Home</Link>
+        <Link to="/calendar" onClick={toggleMenu}>Calendario</Link>
+        <Link to="/history" onClick={toggleMenu}>Historia</Link>
+        <Link to="/results" onClick={toggleMenu}>Resultados</Link>
+        <Link to="/team" onClick={toggleMenu}>Integrantes</Link>
+        <Link to="/contact" onClick={toggleMenu}>Contacto</Link>
+      </nav>
     </header>
   );
 };

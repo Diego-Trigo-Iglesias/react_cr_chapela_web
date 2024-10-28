@@ -64,7 +64,7 @@ const Home = () => {
       </section>
 
       <section className="home-sponsors">
-        <h2>Patrocinadores</h2>
+        <h2>Sponsors</h2>
         <div className="sponsor-logos">
           {sponsors.map((sponsor, index) => (
             <img key={index} src={sponsor.src} alt={sponsor.alt} />

@@ -1,80 +1,102 @@
 .header {
-    display: flex;
-    flex-direction: column;
-    background-color: #2b2b2b; 
-    padding: 10px;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  background-color: #2b2b2b;
+  padding: 10px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 50px;
+  margin: 0;
+}
+
+.wofco-logo {
+  margin-left: 10px;
+}
+
+.socials {
+  display: flex;
+}
+
+.socials a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #ccc;
+}
+
+.socials a:hover {
+  color: #fff;
+}
+
+/* Botón de menú (hamburguesa) */
+.menu-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.line {
+  width: 30px;
+  height: 3px;
+  background-color: #ccc;
+  margin: 4px 0;
+  transition: 0.4s;
+}
+
+.line.open {
+  background-color: #fff;
+}
+
+/* Estilos para el dropdown */
+.dropdown {
+  display: none;
+  flex-direction: column;
+  background-color: #2b2b2b;
+  padding: 30px;
+}
+
+.dropdown a {
+  color: #fff;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.dropdown a:hover {
+  background-color: #444;
+}
+
+/* Mostrar dropdown si el menú está abierto */
+.is-open .dropdown {
+  display: flex;
+}
+
+@media (max-width: 768px) {
   .navbar {
-    display: flex;
-    justify-content: space-between; 
-    align-items: center;
-    padding: 10px;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
   }
-  
-  .logo-container {
-    display: flex; 
-    align-items: center; 
-  }
-  
-  .logo {
-    height: 50px; 
-    margin: 0; 
-  }
-  
-  .wofco-logo {
-    margin-left: 0; 
-  }
-  
+
   .socials {
-    display: flex; 
+    display: none;
   }
-  
-  .socials a {
-    margin: 0 10px;
-    text-decoration: none;
-    color: #ccc;
-  }
-  
-  .socials a:hover {
-    color: #fff; 
-  }
-  
+
   .menu-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    padding: 5px;
+    display: block;
   }
-  
-  .line {
-    width: 30px;
-    height: 3px;
-    background-color: #ccc;
-    margin: 4px 0;
-    transition: 0.4s;
-  }
-  
-  .line.open {
-    background-color: #fff;
-  }
-  
-  .dropdown {
-    display: flex;
-    flex-direction: column;
-    background-color:#2b2b2b; 
-    padding: 30px;
-  }
-  
-  .dropdown a {
-    color: #fff;
-    padding: 10px;
-    text-decoration: none;
-  }
-  
-  .dropdown a:hover {
-    background-color: #444; 
-  }
-  
+}

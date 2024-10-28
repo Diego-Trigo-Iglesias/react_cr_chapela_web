@@ -26,14 +26,3 @@ main {
   padding: 20px;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .navbar a {
-    display: block;
-    margin: 5px 0; 
-  }
-  
-  .logo {
-    height: 40px; 
-  }
-}

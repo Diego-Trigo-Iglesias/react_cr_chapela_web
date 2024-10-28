@@ -11,7 +11,7 @@ const CalendarDetail = () => {
     const eventDetail = id ? competitions.find(comp => comp.id === parseInt(id)) : null;
 
     return (
-        <div className="calendar-container">
+        <div className="calendar-detail-container">
             <h1>Detalles de la Competición</h1>
 
             <button onClick={() => navigate("/calendar")}>
@@ -32,7 +32,7 @@ const CalendarDetail = () => {
                         <p>Tipo de prueba: {eventDetail.level}</p>
                     </div>
                 ) : (
-                    <p>No se encontró la competición.</p>
+                    <p className="no-competitions">No se encontraron detalles.</p>
                 )}
             </div>
         </div>
