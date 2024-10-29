@@ -48,6 +48,9 @@ const Header = () => {
         <Link to="/history" onClick={toggleMenu}>Historia</Link>
         <Link to="/results" onClick={toggleMenu}>Resultados</Link>
         <Link to="/team" onClick={toggleMenu}>Integrantes</Link>
+        <Link to="/gallery" onClick={toggleMenu}>Galeria</Link>
+        <Link to="/merchandising" onClick={toggleMenu}>Productos</Link>
+        <Link to="/partner" onClick={toggleMenu}>Hazte socio</Link>
         <Link to="/contact" onClick={toggleMenu}>Contacto</Link>
       </nav>
     </header>

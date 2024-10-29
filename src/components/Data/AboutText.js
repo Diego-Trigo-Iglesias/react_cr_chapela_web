@@ -29,18 +29,18 @@ export const newsInformation = [
 ];
 
 export const sponsors = [
-    { src: "wofcoSponsor.jpg", alt: "Wofco" },
-    { src: "nonXunta.jpg", alt: "Non Xunta" },
-    { src: "depPontevedra.png", alt: "Dep Pontevedra" },
-    { src: "concelloRedondela.png", alt: "Concello Redondela" },
-    { src: "xunta.png", alt: "Xunta de Galicia" },
-    { src: "niso.jpg", alt: "Grupo NISO" },
-    { src: "fonseca.jpeg", alt: "Talleres Fonseca" },
-    { src: "torresCarrera.jpg", alt: "Torres Carrera" },
-    { src: "repainox.jpg", alt: "Repainox" },
-    { src: "puertoVigo.jpg", alt: "Puerto de Vigo" },
-    { src: "dXura.jpg", alt: "D'Xura" },
-    { src: "gasAmigo.jpg", alt: "Gasoleos Amigo" },
-    { src: "aguaSana.jpg", alt: "Agua Sana" }
+    { src: "/sponsors/wofcoSponsor.jpg", alt: "Wofco" },
+    { src: "/sponsors/nonXunta.jpg", alt: "Non Xunta" },
+    { src: "/sponsors/depPontevedra.png", alt: "Dep Pontevedra" },
+    { src: "/sponsors/concelloRedondela.png", alt: "Concello Redondela" },
+    { src: "/sponsors/xunta.png", alt: "Xunta de Galicia" },
+    { src: "/sponsors/niso.jpg", alt: "Grupo NISO" },
+    { src: "/sponsors/fonseca.jpeg", alt: "Talleres Fonseca" },
+    { src: "/sponsors/torresCarrera.jpg", alt: "Torres Carrera" },
+    { src: "/sponsors/repainox.jpg", alt: "Repainox" },
+    { src: "/sponsors/puertoVigo.jpg", alt: "Puerto de Vigo" },
+    { src: "/sponsors/dXura.jpg", alt: "D'Xura" },
+    { src: "/sponsors/gasAmigo.jpg", alt: "Gasoleos Amigo" },
+    { src: "/sponsors/aguaSana.jpg", alt: "Agua Sana" }
 ];
 

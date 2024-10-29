@@ -1,0 +1,117 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+  }
+  
+  .contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    margin: auto;
+    margin-top: 50px;
+  }
+  
+  .club-logo {
+    width: 100px;
+    margin-bottom: 20px;
+  }
+  
+  h1 {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .contact-form div {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .contact-form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+    text-align: center;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+    width: calc(100% - 24px);
+  }
+  
+  .contact-form textarea {
+    resize: none;
+  }
+  
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    border-color:#e65c00;
+    outline: none;
+  }
+  
+  .contact-form button {
+    padding: 12px;
+    background-color: #e65c00;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  .contact-form button:hover {
+    background-color: #c05107;
+  }
+  
+  .confirmation-banner {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  @media (max-width: 480px) {
+    .contact-container {
+      width: 90%;
+      padding: 10px; 
+      margin-top: 60px; 
+    }
+  
+    .club-logo {
+      width: 80px;
+    }
+  
+    .contact-form input,
+    .contact-form textarea {
+      font-size: 14px;
+    }
+  
+    .contact-form button {
+      font-size: 14px;
+    }
+  }
+  
