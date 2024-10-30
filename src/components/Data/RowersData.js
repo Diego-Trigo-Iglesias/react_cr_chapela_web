@@ -20,14 +20,32 @@ export const ligaA = [
   { nombre: "Rodrigo", apellido: "Comesaña Dos Santos", status: "propio", trayectoria: ["2019/2024"] },
   { nombre: "Roi", apellido: "Prado Pastrana", status: "canterano", trayectoria: ["1999/2004","2013/2024"] },
   { nombre: "Sergio", apellido: "Fernández Rodríguez", status: "canterano", trayectoria: ["2017/2024"] },
-  { nombre: "Tomas", apellido: "Toscano Alonso", status: "canterano", trayectoria: ["2010/2012","2018","2023/2024"] },
-
+  { nombre: "Tomas", apellido: "Toscano Alonso", status: "canterano", trayectoria: ["2010/2012","2018","2023/2024"] }
 ];
 
 export const ligaFemenina = [
-  // { nombre: "", apellido: "", status: "no propio", trayectoria: ["2024"] },
-  // { nombre: "", apellido: "", status: "propio", trayectoria: ["2024"] },
-  // { nombre: "", apellido: "", status: "canterano", trayectoria: ["2024"] },
+  { nombre: "Ana María", apellido: "Ponte Veloso", status: "no propio", trayectoria: ["2024"] },
+  { nombre: "Antia", apellido: "Dominguez Rodriguez", status: "canterano", trayectoria: ["2001/2010","2013/2016","2022/2024"] },
+  { nombre: "Celida", apellido: "Domínguez Figueira", status: "no propio", trayectoria: ["2024"] },
+  { nombre: "Claudia", apellido: "Dorado Acevedo", status: "no propio", trayectoria: ["2023/2024"] },
+  { nombre: "Esther", apellido: "Dorado Acevedo", status: "no propio", trayectoria: ["2023/2024"] },
+  { nombre: "Graciela", apellido: "Barreiro Otero", status: "no propio", trayectoria: ["2022/2024"] },
+  { nombre: "Inés", apellido: "Sineiro Domínguez", status: "no propio", trayectoria: ["2022/2024"] },
+  { nombre: "Laura", apellido: "Carracedo Videira", status: "canterano", trayectoria: ["2018/2021","2024"] },
+  { nombre: "Lucia", apellido: "Fernandez Rodriguez", status: "canterano", trayectoria: ["2020/2024"] },
+  { nombre: "María", apellido: "Lozoya González", status: "no propio", trayectoria: ["2024"] },
+  { nombre: "Marina", apellido: "Dominguez Rodriguez", status: "canterano", trayectoria: ["2000/2009","2011","2021/2024"] },
+  { nombre: "Mencia", apellido: "Jorge Cabaleiro", status: "canterano", trayectoria: ["2020/2024"] },
+  { nombre: "Nerea", apellido: "Cerqueira Figueiras", status: "canterano", trayectoria: ["2017/2024"] },
+  { nombre: "Neus", apellido: "Terradas Briansó", status: "no propio", trayectoria: ["2024"] },
+  { nombre: "Noa", apellido: "Viaño Castañeda", status: "canterano", trayectoria: ["2014/2021","2024"] },
+  { nombre: "Noa", apellido: "Figueirido Magallanes", status: "no propio", trayectoria: ["2023/2024"] },
+  { nombre: "Noa", apellido: "Costas Estevez", status: "canterano", trayectoria: ["2021/2024"] },
+  { nombre: "Olalla", apellido: "Martínez Carballo", status: "canterano", trayectoria: ["2015/2024"] },
+  { nombre: "Tania", apellido: "Dorado Acevedo", status: "no propio", trayectoria: ["2023/2024"] },
+  { nombre: "Veronica", apellido: "Montes Lopez", status: "propio", trayectoria: ["1995/2002","2009","2022/2024"] },
+  { nombre: "Xela", apellido: "Videira Rozados", status: "canterano", trayectoria: ["2018/2022","2024"] },
+  { nombre: "Xiana", apellido: "Campelos Gulfo", status: "canterano", trayectoria: ["2022/2024"] }
 ];
 
 export const ligaB = [
