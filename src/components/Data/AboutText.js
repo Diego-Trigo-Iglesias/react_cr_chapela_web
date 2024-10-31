@@ -1,5 +1,5 @@
 export const aboutText = [
-    { type: "paragraph", content: "El Club de Remo Chapela es un club deportivo dedicado al remo, promoviendo valores de trabajo en equipo y excelencia deportiva. Ofrecemos formación para todas las edades y niveles, organizamos competiciones locales e internacionales, y trabajamos por la integración y el fomento del deporte en nuestra comunidad." },
+    { type: "paragraph", content: "El Club de Remo Chapela es un club deportivo dedicado al remo ubicado en Avd. San Telmo 60, 36320 Chapela – Redondela, promoviendo valores de trabajo en equipo y excelencia deportiva. Ofrecemos formación para todas las edades y niveles, organizamos competiciones locales e internacionales, y trabajamos por la integración y el fomento del deporte en nuestra comunidad." },
     { type: "title", content: "Temporada Sobresaliente" },
     { type: "paragraph", content: "El Club ha cerrado una temporada sobresaliente en las tres categorías en las que compite: Liga Femenina, Liga B, y Liga A, con resultados destacados y logros significativos en cada una." },
     { type: "subtitle", content: "Liga Femenina" },
@@ -39,6 +39,7 @@ export const sponsors = [
     { src: "/sponsors/torresCarrera.jpg", alt: "Torres Carrera" },
     { src: "/sponsors/repainox.jpg", alt: "Repainox" },
     { src: "/sponsors/puertoVigo.jpg", alt: "Puerto de Vigo" },
+    { src: "/sponsors/euroRed.png", alt: "Grupo Eurored" },
     { src: "/sponsors/dXura.jpg", alt: "D'Xura" },
     { src: "/sponsors/gasAmigo.jpg", alt: "Gasoleos Amigo" },
     { src: "/sponsors/aguaSana.jpg", alt: "Agua Sana" }

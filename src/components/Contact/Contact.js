@@ -4,15 +4,15 @@ import "./Contact.css";
 const Contact = () => {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
-  const [submitted, setSubmitted] = useState(false); // Estado para controlar el banner
+  const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const mailtoLink = `mailto:c.r.chapela@hotmail.com?subject=Mensaje desde el formulario&body=Email: ${email}%0D%0AMensaje: ${message}`;
+    const mailtoLink = `mailto:crchapela@hotmail.com?subject=Mensaje desde el formulario&body=Email: ${email}%0D%0AMensaje: ${message}`;
     window.location.href = mailtoLink;
-    setSubmitted(true); // Mostrar el banner al enviar
-    setEmail(''); // Limpiar el campo de email
-    setMessage(''); // Limpiar el campo de mensaje
+    setSubmitted(true);
+    setEmail('');
+    setMessage('');
   };
 
   return (
@@ -40,7 +40,10 @@ const Contact = () => {
         </div>
         <button type="submit">Enviar</button>
       </form>
-
+      <div className="phone-links">
+        <p>¿Prefieres llamar? Contáctanos:</p>
+        <a href="tel:986452976">986 45 29 76</a> - <a href="tel:650457711">650 45 77 11</a>
+      </div>
       {submitted && (
         <div className="confirmation-banner">
           Correo enviado, nos pondremos en contacto contigo lo antes posible.

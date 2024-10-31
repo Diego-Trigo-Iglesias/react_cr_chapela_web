@@ -1,15 +1,17 @@
 import React, { useState } from "react";
-import products from "../Data/Products"; 
+import products from "../Data/Products";
 import "./Merchandising.css";
 
 const Merchandising = () => {
   const [selectedProducts, setSelectedProducts] = useState([]);
-  const [quantities, setQuantities] = useState({}); // Objeto para guardar las cantidades por ID de producto
-  const [addedMessages, setAddedMessages] = useState({}); // Objeto para guardar mensajes de añadido por ID de producto
+  const [quantities, setQuantities] = useState({});
+  const [addedMessages, setAddedMessages] = useState({});
   const [showSummary, setShowSummary] = useState(false);
+  const [userName, setUserName] = useState("");
+  const [contactInfo, setContactInfo] = useState("");
 
   const handleAddToCart = (product) => {
-    const quantity = quantities[product.id] || 0; // Usa la cantidad actual o 0 por defecto
+    const quantity = quantities[product.id] || 0;
     if (product.sizes.length > 0 && !product.selectedSize) {
       alert("Por favor, selecciona una talla.");
       return;
@@ -18,10 +20,9 @@ const Merchandising = () => {
     if (quantity > 0) {
       const productWithQuantity = { ...product, quantity };
       setSelectedProducts((prev) => [...prev, productWithQuantity]);
-      setQuantities((prev) => ({ ...prev, [product.id]: 0 })); // Resetea la cantidad para este producto
+      setQuantities((prev) => ({ ...prev, [product.id]: 0 }));
       setAddedMessages((prev) => ({ ...prev, [product.id]: `Añadido ${product.name} al carrito.` }));
 
-      // Elimina el mensaje después de 3 segundos
       setTimeout(() => {
         setAddedMessages((prev) => ({ ...prev, [product.id]: "" }));
       }, 3000);
@@ -37,17 +38,41 @@ const Merchandising = () => {
   };
 
   const handleConfirmPurchase = () => {
-    console.log("Productos seleccionados:", selectedProducts);
-    // **********************************TODO: Implementar lógica de cobro aquí************************************************************
-    setSelectedProducts([]); // Restablecer el carrito
+    const totalPrice = selectedProducts.reduce((sum, product) => sum + product.quantity * product.price, 0).toFixed(2);
+
+    // Obtenemos los datos de los productos y los datos del usuario
+    const purchaseSummary = {
+      userName,
+      contactInfo,
+      products: selectedProducts.map(product => ({
+        name: product.name,
+        quantity: product.quantity,
+        price: product.price.toFixed(2),
+        total: (product.quantity * product.price).toFixed(2),
+      })),
+      totalPrice,
+    };
+
+    // Crear el cuerpo del correo con los detalles de la compra
+    const productDetails = purchaseSummary.products.map(
+      (product) => `Producto: ${product.name}, Cantidad: ${product.quantity}, Precio: ${product.price} €, Total: ${product.total} €`
+    ).join("%0D%0A");
+
+    const mailtoLink = `mailto:crchapela@hotmail.com?subject=Resumen de Compra&body=Nombre: ${userName}%0D%0AContacto: ${contactInfo}%0D%0A${productDetails}%0D%0ATotal de la compra: ${purchaseSummary.totalPrice} €`;
+
+    window.location.href = mailtoLink;
+
+    // Reiniciar el formulario y el carrito
+    setSelectedProducts([]);
     setShowSummary(false);
-    setQuantities({}); // Restablecer cantidades
+    setQuantities({});
+    setUserName("");
+    setContactInfo("");
   };
 
   const handleCancelPurchase = () => {
     setShowSummary(false);
-    setSelectedProducts([]); // Restablecer productos seleccionados
-    setQuantities({}); // Restablecer cantidades
+    setSelectedProducts([]);
   };
 
   return (
@@ -63,12 +88,12 @@ const Merchandising = () => {
               {product.sizes.length > 0 && (
                 <>
                   <label htmlFor={`size-${product.id}`}>Talla:</label>
-                  <select 
-                    id={`size-${product.id}`} 
+                  <select
+                    id={`size-${product.id}`}
                     onChange={(e) => {
                       const selectedSize = e.target.value;
-                      product.selectedSize = selectedSize; // Guarda el tamaño seleccionado en el objeto del producto
-                    }} 
+                      product.selectedSize = selectedSize;
+                    }}
                     defaultValue=""
                   >
                     <option value="" disabled>
@@ -85,14 +110,16 @@ const Merchandising = () => {
             </div>
             <div>
               <label htmlFor={`quantity-${product.id}`}>Cantidad:</label>
-              <select 
-                id={`quantity-${product.id}`} 
-                value={quantities[product.id] || 0} // Usa 0 por defecto
-                onChange={(e) => setQuantities((prev) => ({ ...prev, [product.id]: Number(e.target.value) }))}
+              <select
+                id={`quantity-${product.id}`}
+                value={quantities[product.id] || 0}
+                onChange={(e) =>
+                  setQuantities((prev) => ({ ...prev, [product.id]: Number(e.target.value) }))
+                }
               >
                 {[...Array(10)].map((_, index) => (
                   <option key={index} value={index}>
-                    {index} {/* Cambia a 0 por defecto */}
+                    {index}
                   </option>
                 ))}
               </select>
@@ -100,7 +127,9 @@ const Merchandising = () => {
             <button onClick={() => handleAddToCart(product)}>
               Agregar al carrito
             </button>
-            {addedMessages[product.id] && <p className="added-message">{addedMessages[product.id]}</p>}
+            {addedMessages[product.id] && (
+              <p className="added-message">{addedMessages[product.id]}</p>
+            )}
           </div>
         ))}
       </div>
@@ -111,6 +140,7 @@ const Merchandising = () => {
       {showSummary && (
         <div className="summary">
           <h2>Resumen de compra</h2>
+          <p>Introduce tus datos y nos encargaremos de todo luego.</p>
           <ul>
             {selectedProducts.map((product, index) => (
               <li key={index}>
@@ -118,8 +148,30 @@ const Merchandising = () => {
               </li>
             ))}
           </ul>
-          <button onClick={handleConfirmPurchase}>Confirmar</button>
-          <button onClick={handleCancelPurchase}>Cancelar</button>
+          <div className="user-info">
+            <label>
+              Nombre de referencia:
+              <input
+                type="text"
+                value={userName}
+                onChange={(e) => setUserName(e.target.value)}
+                required
+              />
+            </label>
+            <label>
+              Teléfono o email de contacto:
+              <input
+                type="text"
+                value={contactInfo}
+                onChange={(e) => setContactInfo(e.target.value)}
+                required
+              />
+            </label>
+          </div>
+          <div className="summary-buttons">
+            <button onClick={handleConfirmPurchase}>Confirmar</button>
+            <button onClick={handleCancelPurchase}>Cancelar</button>
+          </div>
         </div>
       )}
     </div>
