@@ -9,9 +9,12 @@ const Gallery = () => {
   const [error, setError] = useState('');
   const [selectedImage, setSelectedImage] = useState(null);
   const [selectedLeague, setSelectedLeague] = useState('femenina');
+  const [visibleImages, setVisibleImages] = useState(5); // Cantidad inicial de imágenes visibles
+  const [isLoading, setIsLoading] = useState(true); // Inicia con true para mostrar el GIF al cargar la página
 
   const fetchImages = useCallback(async () => {
-    const imageNames = imageList[selectedLeague]; // Obtén las imágenes de la liga seleccionada
+    setIsLoading(true); // Activa el loading cada vez que se haga una nueva búsqueda
+    const imageNames = imageList[selectedLeague];
     const urls = [];
 
     try {
@@ -26,11 +29,23 @@ const Gallery = () => {
       console.error(err);
       setError("Error al cargar las imágenes.");
     }
+    setIsLoading(false); // Desactiva el loading una vez que las imágenes están cargadas
   }, [selectedLeague]);
 
   useEffect(() => {
     fetchImages();
   }, [fetchImages]);
+
+  // Carga más imágenes y activa el estado de loading
+  useEffect(() => {
+    if (visibleImages < imageUrls.length) {
+      setIsLoading(true);
+      setTimeout(() => {
+        setVisibleImages((prevVisible) => prevVisible + 5);
+        setIsLoading(false);
+      }, 1000); // Ajusta el tiempo según tus necesidades
+    }
+  }, [visibleImages, imageUrls]);
 
   const openImage = (url) => {
     setSelectedImage(url);
@@ -42,6 +57,7 @@ const Gallery = () => {
 
   const handleFilterChange = (event) => {
     setSelectedLeague(event.target.value);
+    setVisibleImages(5); // Reinicia la cantidad de imágenes visibles al cambiar de liga
   };
 
   return (
@@ -58,16 +74,23 @@ const Gallery = () => {
         </select>
       </div>
 
-      {imageUrls.length > 0 ? (
+      {isLoading ? (
+        <div className="loading-container">
+          <img src="/loading.gif" alt="Cargando..." className="loading-gif" />
+        </div>
+      ) : (
         <div className="gallery">
-          {imageUrls.map((url, index) => (
-            <img key={index} src={url} alt={`Imagen ${index + 1}`} className="thumbnail"
+          {imageUrls.slice(0, visibleImages).map((url, index) => (
+            <img 
+              key={index} 
+              src={url} 
+              alt={`Imagen ${index + 1}`} 
+              className="thumbnail" 
+              loading="lazy"
               onClick={() => openImage(url)}
             />
           ))}
         </div>
-      ) : (
-        <p>Cargando imágenes...</p>
       )}
 
       {selectedImage && (
